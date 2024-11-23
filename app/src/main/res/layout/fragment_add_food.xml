@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lemon_chiffon"
+    tools:context=".ui.add_food.AddFoodFragment">
+
+    <!-- Title TextView -->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:fontFamily="@font/opensans_variablefont_wdth_wght"
+        android:text="@string/choose_your_type_of_food"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Dishes ImageButton -->
+    <ImageButton
+        android:id="@+id/imageButton_dishes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="150dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="10dp"
+        android:src="@drawable/ic_dishes_64"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton_package_food"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+
+    <!-- Divider View -->
+    <View
+        android:id="@+id/divider"
+        android:layout_width="1dp"
+        android:layout_height="120dp"
+        android:background="@color/tumbleweed"
+        app:layout_constraintBottom_toBottomOf="@id/imageButton_dishes"
+        app:layout_constraintEnd_toStartOf="@id/imageButton_package_food"
+        app:layout_constraintStart_toEndOf="@id/imageButton_dishes"
+        app:layout_constraintTop_toTopOf="@id/imageButton_dishes" />
+    <!-- Dishes Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/dishes"
+        android:fontFamily="@font/opensans_variablefont_wdth_wght"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/imageButton_dishes"
+        app:layout_constraintStart_toStartOf="@id/imageButton_dishes"
+        app:layout_constraintTop_toBottomOf="@id/imageButton_dishes" />
+
+    <!-- Package Foods ImageButton -->
+    <ImageButton
+        android:id="@+id/imageButton_package_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="150dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="10dp"
+        android:src="@drawable/ic_package_food_64"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageButton_dishes"
+        app:layout_constraintTop_toBottomOf="@id/textView" />
+
+    <!-- Package Foods Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/opensans_variablefont_wdth_wght"
+        android:text="@string/package_foods"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/imageButton_package_food"
+        app:layout_constraintStart_toStartOf="@id/imageButton_package_food"
+        app:layout_constraintTop_toBottomOf="@id/imageButton_package_food" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

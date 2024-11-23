@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lemon_chiffon"
+    tools:context=".ui.form.FormFragment">
+
+    <!-- Orange Container -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/formCardView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:cardBackgroundColor="@color/tumbleweed"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/titleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/enter_your_food_details"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_gravity="center_horizontal"
+                android:paddingBottom="16dp" />
+
+            <!-- Food Name -->
+            <TextView
+                android:id="@+id/foodNameLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/food_name"
+                android:textColor="@color/black"
+                android:paddingBottom="4dp" />
+
+            <EditText
+                android:id="@+id/foodNameInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/typing"
+                android:background="@drawable/edit_text_background"
+                android:padding="8dp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Carbohydrate -->
+            <TextView
+                android:id="@+id/carbohydrateLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/carbohydrate"
+                android:textColor="@color/black"
+                android:paddingBottom="4dp" />
+
+            <EditText
+                android:id="@+id/carbohydrateInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/typing"
+                android:background="@drawable/edit_text_background"
+                android:padding="8dp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Protein -->
+            <TextView
+                android:id="@+id/proteinLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/protein"
+                android:textColor="@color/black"
+                android:paddingBottom="4dp" />
+
+            <EditText
+                android:id="@+id/proteinInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/typing"
+                android:background="@drawable/edit_text_background"
+                android:padding="8dp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Fat -->
+            <TextView
+                android:id="@+id/fatLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fat"
+                android:textColor="@color/black"
+                android:paddingBottom="4dp" />
+
+            <EditText
+                android:id="@+id/fatInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/typing"
+                android:background="@drawable/edit_text_background"
+                android:padding="8dp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Calories -->
+            <TextView
+                android:id="@+id/caloriesLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/calories"
+                android:textColor="@color/black"
+                android:paddingBottom="4dp" />
+
+            <EditText
+                android:id="@+id/caloriesInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/typing"
+                android:background="@drawable/edit_text_background"
+                android:padding="8dp"
+                android:layout_marginBottom="24dp" />
+
+            <!-- Calculate Button -->
+            <Button
+                android:id="@+id/calculateButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/calculate"
+                android:layout_gravity="center_horizontal"
+                android:backgroundTint="@color/lemon_chiffon"
+                android:textColor="@color/black"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="8dp" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.dicoding.calocare.ui.home.HomeFragment"
+        android:label="@string/calocare"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_add_food"
+        android:name="com.dicoding.calocare.ui.add_food.AddFoodFragment"
+        android:label="@string/title_add_food"
+        tools:layout="@layout/fragment_add_food" >
+        <action
+            android:id="@+id/action_navigation_add_food_to_formFragment"
+            app:destination="@id/formFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_chatbot"
+        android:name="com.dicoding.calocare.ui.chatbot.ChatbotFragment"
+        android:label="@string/title_chatbot"
+        tools:layout="@layout/fragment_chatbot" />
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.dicoding.calocare.ui.settings.SettingsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/formFragment"
+        android:name="com.dicoding.calocare.ui.form.FormFragment"
+        android:label="Form"
+        tools:layout="@layout/fragment_form" />
+</navigation>

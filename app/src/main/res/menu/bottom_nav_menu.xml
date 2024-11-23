@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_24"
+        android:fontFamily="@font/opensans_variablefont_wdth_wght"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/navigation_add_food"
+        android:icon="@drawable/ic_add_food_24"
+        android:fontFamily="@font/opensans_variablefont_wdth_wght"
+        android:title="@string/title_add_food" />
+
+    <item
+        android:id="@+id/navigation_chatbot"
+        android:icon="@drawable/ic_chatbot_24"
+        android:fontFamily="@font/opensans_variablefont_wdth_wght"
+        android:title="@string/title_chatbot" />
+
+    <item
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/ic_settings_24"
+        android:fontFamily="@font/opensans_variablefont_wdth_wght"
+        android:title="@string/title_settings"/>
+
+</menu>

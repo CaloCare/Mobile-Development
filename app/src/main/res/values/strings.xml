@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">CaloCare</string>
+    <string name="title_home">Home</string>
+    <string name="title_add_food">Add Food</string>
+    <string name="title_chatbot">Chatbot</string>
+    <string name="title_settings">Settings</string>
+    <string name="date">Date</string>
+    <string name="calocare">CaloCare</string>
+    <string name="choose_your_type_of_food">Choose Your Type of Food</string>
+    <string name="dishes">Dishes</string>
+    <string name="package_foods">Package\n Foods</string>
+    <string name="enable_dark_mode">Dark Mode</string>
+    <string name="dark_mode">Enable Dark Mode</string>
+    <string name="hello_blank_fragment">hello blank fragment</string>
+    <string name="opening_chatbot">Welcome to CaloCare Chatbot!\nWe’re here to help you track your food intake and answer any questions you have about nutrition and healthy eating.</string>
+    <string name="typing">Type here...</string>
+    <string name="enter_your_food_details">Enter Your Food Details</string>
+    <string name="food_name">Food name</string>
+    <string name="carbohydrate">Carbohydrate</string>
+    <string name="protein">Protein</string>
+    <string name="fat">Fat</string>
+    <string name="calories">Calories</string>
+    <string name="calculate">Calculate</string>
+</resources>
