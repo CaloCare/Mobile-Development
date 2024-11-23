@@ -1,4 +1,4 @@
-package com.dicoding.calocare
+package com.dicoding.calocare.util
 
 import android.content.Context
 import java.io.File
