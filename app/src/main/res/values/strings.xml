@@ -21,6 +21,10 @@
     <string name="fat">Fat</string>
     <string name="calories">Calories</string>
     <string name="calculate">Calculate</string>
+    <string name="ask_with_chatbot">Ask with chatbot about your results!</string>
+    <string name="result">Result</string>
+    <string name="results_from_chatbot">Results from Chatbot</string>
+    <string name="based_on_the_information_you_entered">Based on the information you entered...</string>
     <string name="test">test</string>
     <string name="test2">test2</string>
 </resources>
