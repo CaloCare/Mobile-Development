@@ -1,4 +1,4 @@
-package com.dicoding.calocare
+package com.dicoding.calocare.ui.main
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -7,6 +7,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.dicoding.calocare.R
 import com.dicoding.calocare.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -26,7 +27,10 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_add_food, R.id.navigation_chatbot,R.id.navigation_settings
+                R.id.navigation_home,
+                R.id.navigation_add_food,
+                R.id.navigation_chatbot,
+                R.id.navigation_settings
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
