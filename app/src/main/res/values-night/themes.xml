@@ -2,24 +2,33 @@
     <!-- Base application theme. -->
     <style name="Theme.CaloCare" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/lemon_chiffon</item>
-        <item name="colorPrimaryVariant">@color/black</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryVariant">@color/gray</item>
+        <item name="colorOnPrimary">@color/white</item>
 
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondaryVariant">#B6B6B6</item>
+        <item name="colorOnSecondary">#B6B6B6</item>
 
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
 
+        <!-- Navigation bar color -->
+        <item name="android:navigationBarColor">?attr/colorPrimary</item>
+
+        <!-- Background color for Dark Mode -->
+        <item name="android:windowBackground">@color/black</item>
+
         <!-- ActionBar title color for dark mode -->
         <item name="actionBarTheme">@style/MyActionBarDark</item>
+
+        <!-- Text Color for dark mode-->
+        <item name="android:textColorPrimary">@color/white</item>
     </style>
 
     <style name="MyActionBarDark" parent="Widget.AppCompat.ActionBar.Solid">
         <item name="android:titleTextColor">@color/white</item>
-        <item name="background">@color/tumbleweed</item>
+        <item name="background">@color/gray</item>
     </style>
 </resources>
