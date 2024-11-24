@@ -17,8 +17,8 @@
         android:label="@string/title_add_food"
         tools:layout="@layout/fragment_add_food" >
         <action
-            android:id="@+id/action_navigation_add_food_to_formFragment"
-            app:destination="@id/formFragment" />
+            android:id="@+id/action_navigation_add_food_to_navigation_camera"
+            app:destination="@id/navigation_camera" />
     </fragment>
 
     <fragment
@@ -32,8 +32,22 @@
         android:label="@string/title_settings"
         tools:layout="@layout/fragment_settings" />
     <fragment
-        android:id="@+id/formFragment"
+        android:id="@+id/navigation_form"
         android:name="com.dicoding.calocare.ui.form.FormFragment"
         android:label="Form"
-        tools:layout="@layout/fragment_form" />
+        tools:layout="@layout/fragment_form" >
+        <action
+            android:id="@+id/action_navigation_form_to_navigation_result"
+            app:destination="@id/navigation_result" />
+    </fragment>
+    <activity
+        android:id="@+id/navigation_camera"
+        android:name="com.dicoding.calocare.ui.add_food.CameraActivity"
+        android:label="activity_camera"
+        tools:layout="@layout/activity_camera" />
+    <fragment
+        android:id="@+id/navigation_result"
+        android:name="com.dicoding.calocare.ui.result.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" />
 </navigation>
