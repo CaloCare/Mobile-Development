@@ -2,7 +2,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/colorPrimary">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -28,6 +29,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_arrow_left_24"
+                    app:tint="?android:textColorPrimary"
                     android:background="?attr/selectableItemBackgroundBorderless"/>
 
                 <TextView
@@ -37,14 +39,16 @@
                     android:fontFamily="@font/opensans_variablefont_wdth_wght"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="@string/date"/>
+                    android:text="@string/date"
+                    android:textColor="?android:textColorPrimary"/>
 
                 <ImageButton
                     android:id="@+id/btn_date_right"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    android:src="@drawable/ic_arrow_right_24" />
+                    android:src="@drawable/ic_arrow_right_24"
+                    app:tint="?android:textColorPrimary"/>
             </LinearLayout>
 
             <!-- Card for Tracking -->
@@ -53,14 +57,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="235dp"
                 android:layout_marginTop="16dp"
-                app:cardBackgroundColor="@color/tumbleweed">
+                app:cardBackgroundColor="?attr/colorPrimaryVariant">
 
                 <!-- Content of Tracker Card -->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/opensans_variablefont_wdth_wght"
-                    android:text="@string/hello_blank_fragment"/>
+                    android:text="@string/hello_blank_fragment"
+                    android:textColor="?android:textColorPrimary"/>
             </androidx.cardview.widget.CardView>
 
             <!-- Card for Dishes -->
@@ -69,7 +74,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="194dp"
                 android:layout_marginTop="16dp"
-                app:cardBackgroundColor="@color/tumbleweed">
+                app:cardBackgroundColor="?attr/colorPrimaryVariant">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -81,7 +86,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_variablefont_wdth_wght"
-                        android:text="@string/hello_blank_fragment"/>
+                        android:text="@string/hello_blank_fragment"
+                        android:textColor="?android:textColorPrimary"/>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recycler_dishes"
@@ -96,7 +102,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="194dp"
                 android:layout_marginTop="16dp"
-                app:cardBackgroundColor="@color/tumbleweed">
+                app:cardBackgroundColor="?attr/colorPrimaryVariant">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -108,7 +114,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_variablefont_wdth_wght"
-                        android:text="@string/hello_blank_fragment"/>
+                        android:text="@string/hello_blank_fragment"
+                        android:textColor="?android:textColorPrimary"/>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recycler_package_food"

@@ -4,31 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lemon_chiffon"
+    android:background="?attr/colorPrimary"
     tools:context=".ui.add_food.AddFoodFragment">
 
     <!-- Title TextView -->
+
+    <!-- Dishes ImageButton -->
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:gravity="center"
+        android:layout_marginTop="36dp"
         android:fontFamily="@font/opensans_variablefont_wdth_wght"
+        android:gravity="center"
         android:text="@string/choose_your_type_of_food"
-        android:textColor="@color/black"
+        android:textColor="?android:textColorPrimary"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Dishes ImageButton -->
     <ImageButton
         android:id="@+id/imageButton_dishes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_marginBottom="150dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="10dp"
@@ -58,7 +58,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/dishes"
         android:fontFamily="@font/opensans_variablefont_wdth_wght"
-        android:textColor="@color/black"
+        android:textColor="?android:textColorPrimary"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@id/imageButton_dishes"
         app:layout_constraintStart_toStartOf="@id/imageButton_dishes"
@@ -86,10 +86,9 @@
         android:layout_marginTop="8dp"
         android:fontFamily="@font/opensans_variablefont_wdth_wght"
         android:text="@string/package_foods"
-        android:textColor="@color/black"
+        android:textColor="?android:textColorPrimary"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@id/imageButton_package_food"
         app:layout_constraintStart_toStartOf="@id/imageButton_package_food"
         app:layout_constraintTop_toBottomOf="@id/imageButton_package_food" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

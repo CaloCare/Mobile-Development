@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lemon_chiffon"
+    android:background="?attr/colorPrimary"
     tools:context=".ui.form.FormFragment">
 
     <!-- Orange Container -->
@@ -13,7 +13,7 @@
         android:id="@+id/formCardView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:cardBackgroundColor="@color/tumbleweed"
+        app:cardBackgroundColor="?attr/colorPrimaryVariant"
         app:cardCornerRadius="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,7 +35,7 @@
                 android:text="@string/enter_your_food_details"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="?android:textColorPrimary"
                 android:layout_gravity="center_horizontal"
                 android:paddingBottom="16dp" />
 
@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/food_name"
-                android:textColor="@color/black"
+                android:textColor="?android:textColorPrimary"
                 android:paddingBottom="4dp" />
 
             <EditText
@@ -63,7 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/carbohydrate"
-                android:textColor="@color/black"
+                android:textColor="?android:textColorPrimary"
                 android:paddingBottom="4dp" />
 
             <EditText
@@ -81,7 +81,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/protein"
-                android:textColor="@color/black"
+                android:textColor="?android:textColorPrimary"
                 android:paddingBottom="4dp" />
 
             <EditText
@@ -99,7 +99,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/fat"
-                android:textColor="@color/black"
+                android:textColor="?android:textColorPrimary"
                 android:paddingBottom="4dp" />
 
             <EditText
@@ -117,7 +117,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/calories"
-                android:textColor="@color/black"
+                android:textColor="?android:textColorPrimary"
                 android:paddingBottom="4dp" />
 
             <EditText
@@ -136,8 +136,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/calculate"
                 android:layout_gravity="center_horizontal"
-                android:backgroundTint="@color/lemon_chiffon"
-                android:textColor="@color/black"
+                android:backgroundTint="?attr/colorSecondaryVariant"
+                android:textColor="?android:textColorPrimary"
                 android:paddingHorizontal="24dp"
                 android:paddingVertical="8dp" />
 
