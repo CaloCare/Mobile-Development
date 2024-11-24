@@ -26,7 +26,10 @@ class AddFoodFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.imageButtonDishes.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_add_food_to_formFragment)
+            findNavController().navigate(R.id.action_navigation_add_food_to_navigation_camera)
+        }
+        binding.imageButtonPackageFood.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_add_food_to_navigation_camera)
         }
     }
 }
