@@ -27,4 +27,6 @@
     <string name="based_on_the_information_you_entered">Based on the information you entered...</string>
     <string name="test">test</string>
     <string name="test2">test2</string>
+    <string name="food_tracker">Food Tracker</string>
+    <string name="foods_eaten">5 Foods Eaten</string>
 </resources>
