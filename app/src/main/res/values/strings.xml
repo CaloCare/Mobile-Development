@@ -27,4 +27,11 @@
     <string name="based_on_the_information_you_entered">Based on the information you entered...</string>
     <string name="test">test</string>
     <string name="test2">test2</string>
+    <string name="food_tracker">Food Tracker</string>
+    <string name="foods_eaten">5 Foods Eaten</string>
+    <string name="capture_your_food_and_lets_start_to_track_your_consumption">Capture your food and lets start to track your consumption</string>
+    <string name="pick_from_gallery">Pick from Gallery</string>
+    <string name="capture_from_camera">Capture from camera</string>
+    <string name="media_chooser">Media Chooser</string>
+    <string name="analyze_food">Analyze Food</string>
 </resources>
