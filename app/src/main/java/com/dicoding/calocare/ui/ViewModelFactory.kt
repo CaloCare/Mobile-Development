@@ -7,6 +7,7 @@ import com.dicoding.calocare.ui.add_food.AddFoodViewModel
 import com.dicoding.calocare.ui.chatbot.ChatbotViewModel
 import com.dicoding.calocare.ui.form.FormViewModel
 import com.dicoding.calocare.ui.home.HomeViewModel
+import com.dicoding.calocare.ui.media_chooser.MediaChooserViewModel
 import com.dicoding.calocare.ui.result.ResultViewModel
 import com.dicoding.calocare.ui.settings.SettingsViewModel
 
@@ -35,6 +36,9 @@ class ViewModelFactory() : ViewModelProvider.NewInstanceFactory() {
             }
             modelClass.isAssignableFrom(AddFoodViewModel::class.java) -> {
                 AddFoodViewModel() as T
+            }
+            modelClass.isAssignableFrom(MediaChooserViewModel::class.java) -> {
+                MediaChooserViewModel() as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

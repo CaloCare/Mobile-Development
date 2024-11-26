@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.dicoding.calocare.R
 import com.dicoding.calocare.databinding.FragmentChatbotBinding
 import com.dicoding.calocare.databinding.FragmentFormBinding
@@ -20,5 +21,13 @@ class FormFragment : Fragment() {
     ): View {
         binding = FragmentFormBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.calculateButton.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_form_to_navigation_result)
+        }
     }
 }
