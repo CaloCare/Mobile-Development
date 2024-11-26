@@ -17,8 +17,8 @@
         android:label="@string/title_add_food"
         tools:layout="@layout/fragment_add_food" >
         <action
-            android:id="@+id/action_navigation_add_food_to_navigation_camera"
-            app:destination="@id/navigation_camera" />
+            android:id="@+id/action_navigation_add_food_to_navigation_mediaChooser"
+            app:destination="@id/navigation_mediaChooser" />
     </fragment>
 
     <fragment
@@ -49,5 +49,21 @@
         android:id="@+id/navigation_result"
         android:name="com.dicoding.calocare.ui.result.ResultFragment"
         android:label="fragment_result"
-        tools:layout="@layout/fragment_result" />
+        tools:layout="@layout/fragment_result" >
+        <action
+            android:id="@+id/action_navigation_result_to_navigation_chatbot"
+            app:destination="@id/navigation_chatbot" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_mediaChooser"
+        android:name="com.dicoding.calocare.ui.media_chooser.MediaChooserFragment"
+        android:label="@string/media_chooser"
+        tools:layout="@layout/fragment_media_chooser" >
+        <action
+            android:id="@+id/action_navigation_mediaChooser_to_navigation_camera"
+            app:destination="@id/navigation_camera" />
+        <action
+            android:id="@+id/action_navigation_mediaChooser_to_navigation_form"
+            app:destination="@id/navigation_form" />
+    </fragment>
 </navigation>
