@@ -1,9 +1,11 @@
 package com.dicoding.calocare.ui.media_chooser
 
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.net.Uri
 import androidx.fragment.app.viewModels
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,14 +14,18 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.camera.core.ImageProxy
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import com.dicoding.calocare.R
 import com.dicoding.calocare.databinding.FragmentAddFoodBinding
 import com.dicoding.calocare.databinding.FragmentMediaChooserBinding
+import com.dicoding.calocare.helper.ImageClassifierHelper
 import com.dicoding.calocare.util.getImageUri
 import com.dicoding.calocare.util.uriToFile
+import org.tensorflow.lite.support.image.TensorImage
+import org.tensorflow.lite.task.vision.classifier.Classifications
 
 class MediaChooserFragment : Fragment() {
 
@@ -30,6 +36,7 @@ class MediaChooserFragment : Fragment() {
     private var currentImageUri: Uri? = null
     private lateinit var binding: FragmentMediaChooserBinding
     private val viewModel: MediaChooserViewModel by viewModels()
+    private lateinit var imageClassifierHelper: ImageClassifierHelper
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -49,7 +56,10 @@ class MediaChooserFragment : Fragment() {
         }
 
         binding.analyzeButton.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_mediaChooser_to_navigation_form)
+            currentImageUri?.let { uri ->
+                analyzeImage(uri)
+            } ?: showToast("Please select an image first")
+
         }
     }
 
@@ -100,6 +110,36 @@ class MediaChooserFragment : Fragment() {
 //            viewModel.uploadImage(imageFile)
 //        } ?: showToast("No Image Selected")
 //    }
+
+    private fun analyzeImage(imageUri: Uri) {
+        // Load the image as a Bitmap
+        val bitmap = MediaStore.Images.Media.getBitmap(requireContext().contentResolver, imageUri)
+
+        // Initialize the ImageClassifierHelper
+        imageClassifierHelper = ImageClassifierHelper(
+            context = requireContext(),
+            classiferListener = object : ImageClassifierHelper.ClassifierListener {
+                override fun onError(error: String) {
+                    Toast.makeText(requireContext(), error, Toast.LENGTH_SHORT).show()
+                }
+
+                override fun onResults(results: List<Classifications>?) {
+                    val foodName = results?.firstOrNull()?.categories?.firstOrNull()?.label ?: "Unknown Food"
+                    navigateToFormFragment(foodName)
+                }
+
+            }
+
+        )
+        // Classify the image
+        imageClassifierHelper.classifyImage(bitmap)
+    }
+
+    private fun navigateToFormFragment(foodName: String) {
+        // Navigate to FormFragment with the food name
+        val action = MediaChooserFragmentDirections.actionNavigationMediaChooserToNavigationForm(foodName)
+        findNavController().navigate(action)
+    }
 
     // Fungsi untuk memeriksa izin kamera
     private fun checkCameraPermission() {
