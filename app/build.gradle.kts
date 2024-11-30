@@ -82,6 +82,9 @@ dependencies {
     implementation("org.tensorflow:tensorflow-lite-metadata:0.4.4")
     implementation("org.tensorflow:tensorflow-lite-task-vision:0.4.4")
 
+    implementation("com.google.android.gms:play-services-tflite-java:16.1.0")
+    implementation("com.google.android.gms:play-services-tflite-gpu:16.2.0")
+
 
     // safe args (Navigation)
     implementation ("androidx.navigation:navigation-fragment-ktx")
