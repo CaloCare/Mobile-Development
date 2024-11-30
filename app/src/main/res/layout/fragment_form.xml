@@ -52,7 +52,7 @@
                 android:id="@+id/foodNameInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/typing"
+                android:hint="@string/food_name"
                 android:background="@drawable/edit_text_background"
                 android:padding="8dp"
                 android:layout_marginBottom="16dp" />
@@ -70,7 +70,7 @@
                 android:id="@+id/carbohydrateInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/typing"
+                android:hint="@string/carbohydrate"
                 android:background="@drawable/edit_text_background"
                 android:padding="8dp"
                 android:layout_marginBottom="16dp" />
@@ -88,7 +88,7 @@
                 android:id="@+id/proteinInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/typing"
+                android:hint="@string/protein"
                 android:background="@drawable/edit_text_background"
                 android:padding="8dp"
                 android:layout_marginBottom="16dp" />
@@ -106,7 +106,7 @@
                 android:id="@+id/fatInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/typing"
+                android:hint="@string/fat"
                 android:background="@drawable/edit_text_background"
                 android:padding="8dp"
                 android:layout_marginBottom="16dp" />
@@ -124,7 +124,7 @@
                 android:id="@+id/caloriesInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/typing"
+                android:hint="@string/calories"
                 android:background="@drawable/edit_text_background"
                 android:padding="8dp"
                 android:layout_marginBottom="24dp" />

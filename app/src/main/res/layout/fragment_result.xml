@@ -47,7 +47,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/opensans_variablefont_wdth_wght"
-                    android:text="Food Details"
+                    android:text="@string/food_details"
                     android:textColor="?android:textColorPrimary"
                     android:textSize="14sp" />
                 <TextView
@@ -66,7 +66,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Carbohydrate:"
+                        android:text="@string/carbohydrate_in_result"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
 
@@ -92,7 +92,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Protein:"
+                        android:text="@string/protein_in_result"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
 
@@ -118,7 +118,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Fat:"
+                        android:text="@string/fat_in_result"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
 
@@ -144,7 +144,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Calories:"
+                        android:text="@string/calories_in_result"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
 
@@ -187,6 +187,7 @@
                         android:layout_gravity="center_horizontal" />
 
                     <TextView
+                        android:id="@+id/result"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
