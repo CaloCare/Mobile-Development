@@ -26,10 +26,6 @@ class FormFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Retrieve the food name from the arguments
-        val foodName = arguments?.getString("FOOD_NAME") ?: ""
-        binding.foodNameInput.setText(foodName)
-
         binding.calculateButton.setOnClickListener {
             findNavController().navigate(R.id.action_navigation_form_to_navigation_result)
         }

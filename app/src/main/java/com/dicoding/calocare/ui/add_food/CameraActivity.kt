@@ -19,21 +19,13 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.dicoding.calocare.R
 import com.dicoding.calocare.util.createCustomTempFile
 import com.dicoding.calocare.databinding.ActivityCameraBinding
-import com.dicoding.calocare.helper.ImageClassifierHelper
-import com.dicoding.calocare.ui.form.FormFragment
-import org.tensorflow.lite.task.vision.classifier.Classifications
-import java.lang.Error
-import java.text.NumberFormat
 
 class CameraActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCameraBinding
     private var cameraSelector: CameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
     private var imageCapture: ImageCapture? = null
-
-    private lateinit var imageClassifierHelper: ImageClassifierHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,29 +63,6 @@ class CameraActivity : AppCompatActivity() {
     }
 
     private fun startCamera() {
-//        imageClassifierHelper = ImageClassifierHelper(
-//            context = this,
-//            classiferListener = object : ImageClassifierHelper.ClassifierListener {
-//                override fun onError(error: String) {
-//                    runOnUiThread {
-//                        Toast.makeText(this@CameraActivity, error, Toast.LENGTH_SHORT).show()
-//                    }
-//                }
-//
-//                override fun onResults(results: List<Classifications>?) {
-//                    // Assuming the first result is the most confident prediction
-//                    val foodName = results?.firstOrNull()?.categories?.firstOrNull()?.label ?: "Unknown Food"
-//
-//                    val bundle = Bundle().apply {
-//                        putString("Food_NAME", foodName)
-//                    }
-//
-//                    // Use NavController to navigate to FormFragment
-//                    val navController = findNavController(R.id.) // Replace with your NavHostFragment ID
-//                    navController.navigate(R.id.action_cameraFragment_to_formFragment, bundle)
-//                }
-//            }
-//        )
         val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
 
         cameraProviderFuture.addListener({
@@ -135,15 +104,11 @@ class CameraActivity : AppCompatActivity() {
             ContextCompat.getMainExecutor(this),
             object : ImageCapture.OnImageSavedCallback {
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
-                    // Load the image and classify it
-//                    val imageUri = output.savedUri
-//                    classifyImage(imageUri) // Implement this method to classify the image
                     val intent = Intent()
                     intent.putExtra(EXTRA_CAMERAX_IMAGE, output.savedUri.toString())
                     setResult(CAMERAX_RESULT, intent)
                     finish()
                 }
-
                 override fun onError(exc: ImageCaptureException) {
                     Toast.makeText(
                         this@CameraActivity,
