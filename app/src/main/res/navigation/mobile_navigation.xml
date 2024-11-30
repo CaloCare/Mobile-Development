@@ -36,6 +36,9 @@
         android:name="com.dicoding.calocare.ui.form.FormFragment"
         android:label="Form"
         tools:layout="@layout/fragment_form" >
+        <argument
+            android:name="foodName"
+            app:argType="string" />
         <action
             android:id="@+id/action_navigation_form_to_navigation_result"
             app:destination="@id/navigation_result" />
