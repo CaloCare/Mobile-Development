@@ -176,18 +176,28 @@
                     android:padding="12dp">
 
                     <TextView
-                        android:id="@+id/text_chatbot_result"
+                        android:id="@+id/textView_result"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_variablefont_wdth_wght"
-                        android:text="@string/results_from_chatbot"
+                        android:text="@string/based_on_your_food_details_you_have"
                         android:textColor="?android:textColorPrimary"
                         android:textStyle="bold"
                         android:textSize="14sp"
                         android:layout_gravity="center_horizontal" />
 
                     <TextView
-                        android:id="@+id/result"
+                        android:id="@+id/textViewTotalNutrition"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:padding="8dp"
+                        android:fontFamily="@font/opensans_variablefont_wdth_wght"
+                        android:text="@string/based_on_the_information_you_entered"
+                        android:textColor="?android:textColorPrimary"
+                        android:textSize="12sp" />
+                    <TextView
+                        android:id="@+id/textViewEvaluation"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
