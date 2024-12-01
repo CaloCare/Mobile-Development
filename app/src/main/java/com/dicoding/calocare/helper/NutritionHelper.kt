@@ -19,7 +19,7 @@ import java.nio.channels.FileChannel
 class NutritionHelper(
     private val modelName: String = "Nutritional_Evaluation_Model.tflite",
     val context: Context,
-    private val onResult: (String) -> Unit,
+    val onResult: (String) -> Unit,
     private val onError: (String) -> Unit,
 ) {
     private var interpreter: InterpreterApi? = null
@@ -81,21 +81,19 @@ class NutritionHelper(
         interpreter?.close()
     }
 
-    fun predictNutrition(inputString: String) {
-        if (interpreter == null) {
-            return
-        }
+    fun evaluateNutrition(calories: Double, proteins: Double, fat: Double, carbohydrate: Double): Pair<Double, Int> {
+        // Calculate total nutrition
+        val totalNutrition = calories + proteins + fat + carbohydrate
 
-        val inputArray = FloatArray(1)
-        inputArray[0] = inputString.toFloat()
-        val outputArray = Array(1) { FloatArray(1) }
-        try {
-            interpreter?.run(inputArray, outputArray)
-            onResult(outputArray[0][0].toString())
-        } catch (e: Exception) {
-            onError(context.getString(R.string.no_tflite_interpreter_loaded))
-            Log.e(TAG, e.message.toString())
-        }
+        // Define bins and labels
+        val bins = listOf(0.0, 200.0, 400.0, 600.0, 800.0, Double.MAX_VALUE)
+        val labels = listOf(1, 2, 3, 4, 5)
+
+        // Determine evaluation category based on bins
+        val evaluation = bins.indexOfFirst { totalNutrition < it } - 1
+        val category = if (evaluation >= 0) labels[evaluation] else 1 // Default to 1 if out of bounds
+
+        return Pair(totalNutrition, category)
     }
 
     companion object {
