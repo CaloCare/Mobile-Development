@@ -54,7 +54,8 @@
                     android:id="@+id/textViewFoodName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/food_name"/>
+                    android:text="@string/food_name"
+                    android:textColor="?android:textColorPrimary"/>"
                 <!-- Carbohydrate -->
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -67,7 +68,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Carbohydrate:"
-                        android:textColor="@color/black"
+                        android:textColor="?android:textColorPrimary"
                         android:textSize="14sp" />
 
                     <TextView
@@ -76,7 +77,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/carbohydrate"
-                        android:textColor="@color/black"
+                        android:textColor="?android:textColorPrimary"
                         android:textSize="14sp"
                         android:gravity="end" />
                 </LinearLayout>
@@ -93,7 +94,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Protein:"
-                        android:textColor="@color/black"
+                        android:textColor="?android:textColorPrimary"
                         android:textSize="14sp" />
 
                     <TextView
@@ -102,7 +103,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/protein"
-                        android:textColor="@color/black"
+                        android:textColor="?android:textColorPrimary"
                         android:textSize="14sp"
                         android:gravity="end" />
                 </LinearLayout>
@@ -119,7 +120,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Fat:"
-                        android:textColor="@color/black"
+                        android:textColor="?android:textColorPrimary"
                         android:textSize="14sp" />
 
                     <TextView
@@ -128,7 +129,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/fat"
-                        android:textColor="@color/black"
+                        android:textColor="?android:textColorPrimary"
                         android:textSize="14sp"
                         android:gravity="end" />
                 </LinearLayout>
@@ -145,7 +146,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Calories:"
-                        android:textColor="@color/black"
+                        android:textColor="?android:textColorPrimary"
                         android:textSize="14sp" />
 
                     <TextView
@@ -154,7 +155,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/calories"
-                        android:textColor="@color/black"
+                        android:textColor="?android:textColorPrimary"
                         android:textSize="14sp"
                         android:gravity="end" />
                 </LinearLayout>

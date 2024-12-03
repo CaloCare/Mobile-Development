@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 
 class PreferencesHelper(context: Context) {
+
     private val preferences: SharedPreferences = context.getSharedPreferences("settings", Context.MODE_PRIVATE)
 
     fun setDarkMode(enabled: Boolean) {
@@ -12,6 +13,14 @@ class PreferencesHelper(context: Context) {
 
     fun isDarkMode(): Boolean {
         return preferences.getBoolean(DARK_MODE_KEY, false)
+    }
+
+    fun isNotificationEnabled(): Boolean {
+        return preferences.getBoolean("notification_enabled", false)
+    }
+
+    fun setNotificationEnabled(isEnabled: Boolean) {
+        preferences.edit().putBoolean("notification_enabled", isEnabled).apply()
     }
 
     companion object {

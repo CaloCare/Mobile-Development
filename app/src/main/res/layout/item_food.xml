@@ -21,6 +21,7 @@
             android:fontFamily="@font/opensans_variablefont_wdth_wght"
             android:textSize="25sp"
             android:text="@string/food_name"
+            android:textColor="?android:textColorPrimary"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -32,6 +33,7 @@
             android:fontFamily="@font/opensans_variablefont_wdth_wght"
             android:textSize="15sp"
             android:text="@string/calories"
+            android:textColor="?android:textColorPrimary"
             app:layout_constraintTop_toBottomOf="@id/textViewFoodName"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="8dp" />
@@ -44,6 +46,7 @@
             android:fontFamily="@font/opensans_variablefont_wdth_wght"
             android:textSize="20sp"
             android:text="4 Not bad for you"
+            android:textColor="?android:textColorPrimary"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

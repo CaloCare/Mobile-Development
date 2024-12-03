@@ -118,8 +118,9 @@
                 android:id="@+id/analyzeButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:backgroundTint="?attr/colorSecondaryVariant"
                 android:text="@string/analyze_food"
-                android:textColor="@color/black"/>
+                android:textColor="?android:textColorPrimary"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
