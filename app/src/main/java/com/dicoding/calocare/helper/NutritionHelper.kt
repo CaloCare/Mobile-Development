@@ -7,7 +7,6 @@ import com.dicoding.calocare.R
 import com.google.android.gms.tflite.client.TfLiteInitializationOptions
 import com.google.android.gms.tflite.gpu.support.TfLiteGpu
 import com.google.android.gms.tflite.java.TfLite
-import org.tensorflow.lite.Interpreter
 import org.tensorflow.lite.InterpreterApi
 import org.tensorflow.lite.gpu.GpuDelegateFactory
 import java.io.FileInputStream
@@ -86,7 +85,7 @@ class NutritionHelper(
         val totalNutrition = calories + proteins + fat + carbohydrate
 
         // Define bins and labels
-        val bins = listOf(0.0, 200.0, 400.0, 600.0, 800.0, Double.MAX_VALUE)
+        val bins = listOf(0.0, 100.0, 300.0, 500.0, 700.0, Double.MAX_VALUE)
         val labels = listOf(1, 2, 3, 4, 5)
 
         // Determine evaluation category based on bins

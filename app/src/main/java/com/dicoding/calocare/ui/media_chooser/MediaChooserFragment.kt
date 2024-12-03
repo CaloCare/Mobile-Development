@@ -118,6 +118,15 @@ class MediaChooserFragment : Fragment() {
         // Initialize the ImageClassifierHelper
         imageClassifierHelper = ImageClassifierHelper(
             context = requireContext(),
+            onResult = { result ->
+                // Handle successful result
+                val foodName = result
+                navigateToFormFragment(foodName)
+            },
+            onError = { error ->
+                // Handle error
+                Toast.makeText(requireContext(), error, Toast.LENGTH_SHORT).show()
+            },
             classiferListener = object : ImageClassifierHelper.ClassifierListener {
                 override fun onError(error: String) {
                     Toast.makeText(requireContext(), error, Toast.LENGTH_SHORT).show()
@@ -127,10 +136,9 @@ class MediaChooserFragment : Fragment() {
                     val foodName = results?.firstOrNull()?.categories?.firstOrNull()?.label ?: "Unknown Food"
                     navigateToFormFragment(foodName)
                 }
-
             }
-
         )
+
         // Classify the image
         imageClassifierHelper.classifyImage(bitmap)
     }
