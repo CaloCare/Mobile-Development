@@ -14,6 +14,14 @@ class PreferencesHelper(context: Context) {
         return preferences.getBoolean(DARK_MODE_KEY, false)
     }
 
+    fun isNotificationEnabled(): Boolean {
+        return preferences.getBoolean("notification_enabled", false)
+    }
+
+    fun setNotificationEnabled(isEnabled: Boolean) {
+        preferences.edit().putBoolean("notification_enabled", isEnabled).apply()
+    }
+
     companion object {
         private const val DARK_MODE_KEY = "dark_mode"
     }
