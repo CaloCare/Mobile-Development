@@ -43,4 +43,7 @@
     <string name="fat_in_result">Fat:</string>
     <string name="calories_in_result">Calories:</string>
     <string name="based_on_your_food_details_you_have">Based on your food details, you have</string>
+    <string name="image_classifier_not_initialized">Image Classifier not Initialized</string>
+    <string name="classification_failed">Classification Failed</string>
+    <string name="image_classification_failed">Image Classification Failed</string>
 </resources>
