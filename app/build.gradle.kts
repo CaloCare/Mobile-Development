@@ -56,6 +56,7 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.legacy.support.v4)
     implementation(libs.androidx.fragment.ktx)
+    implementation(libs.androidx.activity)
 
     // Testing
     testImplementation(libs.junit)
@@ -66,6 +67,9 @@ dependencies {
     implementation("androidx.camera:camera-view:1.4.0")
     implementation("androidx.camera:camera-camera2:1.4.0")
     implementation("androidx.camera:camera-lifecycle:1.4.0")
+
+    // WorkManager
+    implementation("androidx.work:work-runtime-ktx:2.8.1")
 
     // Retrofit and OkHttp for API calls
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
