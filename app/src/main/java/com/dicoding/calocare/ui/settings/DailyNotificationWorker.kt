@@ -41,7 +41,7 @@ class DailyNotificationWorker(context: Context, params: WorkerParameters) : Work
         }
 
         val notification = NotificationCompat.Builder(applicationContext, channelId)
-            .setSmallIcon(R.drawable.splash_calocare)
+            .setSmallIcon(R.drawable.calocare_splash)
             .setContentTitle("CaloCare Reminder")
             .setContentText("It's a new day! Don't forget to scan and maintain your diet!")
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
