@@ -46,4 +46,6 @@
     <string name="image_classifier_not_initialized">Image Classifier not Initialized</string>
     <string name="classification_failed">Classification Failed</string>
     <string name="image_classification_failed">Image Classification Failed</string>
+    <string name="notifications">Notifications</string>
+    <string name="enable_notifications">Enable Notifications</string>
 </resources>
