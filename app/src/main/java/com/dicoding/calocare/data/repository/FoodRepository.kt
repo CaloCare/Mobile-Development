@@ -1,13 +1,10 @@
 package com.dicoding.calocare.data.repository
 
+import com.dicoding.calocare.data.Result
+import com.dicoding.calocare.data.remote.response.*
 import com.dicoding.calocare.data.remote.retrofit.ApiService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.RequestBody.Companion.toRequestBody
-import com.dicoding.calocare.data.Result
-import com.dicoding.calocare.data.remote.response.AddFoodRequest
-import com.dicoding.calocare.data.remote.response.FoodModelResponses
 import retrofit2.HttpException
 import java.io.IOException
 
@@ -25,31 +22,76 @@ class FoodRepository private constructor(
     }
 
     suspend fun addNewFood(
-        food_name: String,
+        foodName: String,
         carbohydrate: Double,
         protein: Double,
         fat: Double,
-        calories: Double,
-        total_nutrition: Double,
+        calories: Int,
+        totalNutrition: Double,
         evaluation: String
-    ): Result<FoodModelResponses> {
+    ): Result<FoodResponse> {
         return withContext(Dispatchers.IO) {
             try {
-                // Create AddFoodRequest
-                val addFoodRequest = AddFoodRequest(
-                    food_name = food_name,
+                val foodRequest = Food(
+                    foodName = foodName,
                     carbohydrate = carbohydrate,
                     protein = protein,
                     fat = fat,
                     calories = calories,
-                    total_nutrition = total_nutrition,
+                    totalNutrition = totalNutrition,
                     evaluation = evaluation
                 )
 
-                // Call the API
-                val response = apiService.addNewFood(addFoodRequest)
+                val response = apiService.addFood(foodRequest)
+                Result.Success(response)
+            } catch (e: IOException) {
+                Result.Error("Network error: ${e.message}")
+            } catch (e: HttpException) {
+                Result.Error("HTTP error: ${e.message}")
+            } catch (e: Exception) {
+                Result.Error("An unexpected error occurred: ${e.message}")
+            }
+        }
+    }
 
-                // Return success
+    suspend fun getAllFoods(): Result<List<FoodItem>> {
+        return withContext(Dispatchers.IO) {
+            try {
+                val response =
+                    apiService.showAllFood()
+                Result.Success(response)
+            } catch (e: IOException) {
+                Result.Error("Network error: ${e.message}")
+            } catch (e: HttpException) {
+                Result.Error("HTTP error: ${e.message}")
+            } catch (e: Exception) {
+                Result.Error("An unexpected error occurred: ${e.message}")
+            }
+        }
+    }
+
+    suspend fun searchFoodByName(foodName: String): Result<SearchResponse> {
+        return withContext(Dispatchers.IO) {
+            try {
+                val searchRequest = SearchRequest(name = foodName)
+                val response =
+                    apiService.searchFood(searchRequest)
+                Result.Success(response)
+            } catch (e: IOException) {
+                Result.Error("Network error: ${e.message}")
+            } catch (e: HttpException) {
+                Result.Error("HTTP error: ${e.message}")
+            } catch (e: Exception) {
+                Result.Error("An unexpected error occurred: ${e.message}")
+            }
+        }
+    }
+
+    suspend fun deleteFoodByName(foodName: String): Result<DeleteResponse> {
+        return withContext(Dispatchers.IO) {
+            try {
+                val deleteRequest = DeleteRequest(name = foodName)
+                val response = apiService.deleteFood(deleteRequest)
                 Result.Success(response)
             } catch (e: IOException) {
                 Result.Error("Network error: ${e.message}")
