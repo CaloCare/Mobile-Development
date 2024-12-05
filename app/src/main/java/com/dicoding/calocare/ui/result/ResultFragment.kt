@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
@@ -18,7 +19,7 @@ class ResultFragment : Fragment() {
 
     private lateinit var binding: FragmentResultBinding
 
-    private val formViewModel: ResultViewModel by viewModels {
+    private val resultViewModel: ResultViewModel by activityViewModels {
         ViewModelFactory.getInstance(requireContext())
     }
 
@@ -33,6 +34,17 @@ class ResultFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        resultViewModel.foodResult.observe(viewLifecycleOwner) { foodItem ->
+            foodItem?.let {
+                binding.textViewFoodName.text = it.foodName
+                binding.textViewCarbohydrate.text = it.carbohydrate.toString()
+                binding.textViewProtein.text = it.protein.toString()
+                binding.textViewFat.text = it.fat.toString()
+                binding.textViewCalories.text = it.calories.toString()
+                binding.textViewTotalNutrition.text = it.totalNutrition.toString()
+                binding.textViewEvaluation.text = it.evaluation
+            }
+        }
 
         binding.buttonAskChatbot.setOnClickListener {
             findNavController().navigate(R.id.action_navigation_result_to_navigation_chatbot)
