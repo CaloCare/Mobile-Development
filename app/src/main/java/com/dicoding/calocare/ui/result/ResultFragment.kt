@@ -5,14 +5,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
 import com.dicoding.calocare.R
 import com.dicoding.calocare.databinding.FragmentResultBinding
+import com.dicoding.calocare.ui.ViewModelFactory
+import com.dicoding.calocare.ui.form.FormViewModel
 
 
 class ResultFragment : Fragment() {
 
     private lateinit var binding: FragmentResultBinding
+
+    private val formViewModel: ResultViewModel by viewModels {
+        ViewModelFactory.getInstance(requireContext())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,19 +33,9 @@ class ResultFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Retrieve the data from the arguments
-        val totalNutrition = arguments?.getString("TOTAL_NUTRITION") ?: "0.0"
-        val evaluation = arguments?.getString("EVALUATION") ?: "N/A"
-        val foodName = arguments?.getString("FOOD_NAME") ?: "Unknown Food"
-
-        // Display the results in the TextViews
-        binding.textViewTotalNutrition.text = "Total Nutrition: $totalNutrition"
-        binding.textViewEvaluation.text = "Evaluation: $evaluation"
 
         binding.buttonAskChatbot.setOnClickListener {
             findNavController().navigate(R.id.action_navigation_result_to_navigation_chatbot)
         }
     }
-
-
 }

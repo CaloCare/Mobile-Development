@@ -56,7 +56,8 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.legacy.support.v4)
     implementation(libs.androidx.fragment.ktx)
-    implementation(libs.androidx.activity)
+    implementation("androidx.activity:activity:1.7.2")
+
 
     // Testing
     testImplementation(libs.junit)
