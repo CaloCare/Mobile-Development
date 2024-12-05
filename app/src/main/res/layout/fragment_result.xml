@@ -14,10 +14,10 @@
         android:backgroundTint="?attr/colorPrimaryVariant"
         app:cardCornerRadius="16dp"
         app:cardElevation="8dp"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,19 +29,19 @@
                 android:id="@+id/text_result_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:fontFamily="@font/opensans_variablefont_wdth_wght"
                 android:text="@string/result"
-                android:textSize="24sp"
-                android:textStyle="bold"
                 android:textColor="?android:textColorPrimary"
-                android:layout_gravity="center_horizontal" />
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:id="@+id/value_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="8dp">
+                android:layout_marginTop="8dp"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -49,18 +49,22 @@
                     android:fontFamily="@font/opensans_variablefont_wdth_wght"
                     android:text="@string/food_details"
                     android:textColor="?android:textColorPrimary"
-                    android:textSize="14sp" />
+                    android:textSize="20sp" />
+
                 <TextView
                     android:id="@+id/textViewFoodName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/food_name"/>
+                    android:fontFamily="@font/opensans_variablefont_wdth_wght"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:text="@string/food_name" />
                 <!-- Carbohydrate -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="4dp">
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="0dp"
@@ -75,18 +79,18 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="start"
                         android:text="@string/carbohydrate"
                         android:textColor="@color/black"
-                        android:textSize="14sp"
-                        android:gravity="end" />
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <!-- Protein -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="4dp">
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="0dp"
@@ -101,18 +105,18 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="start"
                         android:text="@string/protein"
                         android:textColor="@color/black"
-                        android:textSize="14sp"
-                        android:gravity="end" />
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <!-- Fat -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="4dp">
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="0dp"
@@ -127,18 +131,18 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="start"
                         android:text="@string/fat"
                         android:textColor="@color/black"
-                        android:textSize="14sp"
-                        android:gravity="end" />
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <!-- Calories -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="4dp">
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="0dp"
@@ -153,10 +157,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="start"
                         android:text="@string/calories"
                         android:textColor="@color/black"
-                        android:textSize="14sp"
-                        android:gravity="end" />
+                        android:textSize="14sp" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -179,33 +183,70 @@
                         android:id="@+id/textView_result"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
                         android:fontFamily="@font/opensans_variablefont_wdth_wght"
                         android:text="@string/based_on_your_food_details_you_have"
                         android:textColor="?android:textColorPrimary"
-                        android:textStyle="bold"
                         android:textSize="14sp"
-                        android:layout_gravity="center_horizontal" />
+                        android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/textViewTotalNutrition"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:padding="8dp"
-                        android:fontFamily="@font/opensans_variablefont_wdth_wght"
-                        android:text="@string/based_on_the_information_you_entered"
-                        android:textColor="?android:textColorPrimary"
-                        android:textSize="12sp" />
-                    <TextView
-                        android:id="@+id/textViewEvaluation"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/opensans_variablefont_wdth_wght"
+
+                            android:text="@string/total_nutrition"
+                            android:textColor="?android:textColorPrimary"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/textViewTotalNutrition"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="start"
+                            android:fontFamily="@font/opensans_variablefont_wdth_wght"
+                            android:padding="8dp"
+                            android:text="@string/based_on_the_information_you_entered"
+                            android:textColor="?android:textColorPrimary"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:padding="8dp"
-                        android:fontFamily="@font/opensans_variablefont_wdth_wght"
-                        android:text="@string/based_on_the_information_you_entered"
-                        android:textColor="?android:textColorPrimary"
-                        android:textSize="12sp" />
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/opensans_variablefont_wdth_wght"
+                            android:text="@string/evaluation"
+                            android:textColor="?android:textColorPrimary"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/textViewEvaluation"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="start"
+                            android:fontFamily="@font/opensans_variablefont_wdth_wght"
+                            android:padding="8dp"
+                            android:text="@string/based_on_the_information_you_entered"
+                            android:textColor="?android:textColorPrimary"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -214,13 +255,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:padding="12dp"
                 android:background="@drawable/rounded_button_background"
                 android:fontFamily="@font/opensans_variablefont_wdth_wght"
+                android:padding="12dp"
                 android:text="@string/ask_with_chatbot"
                 android:textColor="?android:textColorPrimary"
-                android:textStyle="bold"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:textStyle="bold" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
