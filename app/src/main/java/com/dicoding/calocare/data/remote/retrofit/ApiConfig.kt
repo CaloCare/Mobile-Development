@@ -15,7 +15,7 @@ class ApiConfig {
                 .addInterceptor(loggingInterceptor)
                 .build()
 
-            val retrofit = Retrofit.Builder().baseUrl("") //Perlu diisi dengan API KEY
+            val retrofit = Retrofit.Builder().baseUrl("https://calocare-266542065750.asia-southeast2.run.app")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()
