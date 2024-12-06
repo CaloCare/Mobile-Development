@@ -59,14 +59,12 @@ class FormFragment : Fragment() {
         formViewModel.addFoodResult.observe(viewLifecycleOwner) { result ->
             when (result) {
                 is Result.Success -> {
-//                    hideLoading()
-                    Toast.makeText(
-                        requireContext(),
-                        "Food added successfully!",
-                        Toast.LENGTH_LONG
-                    ).show()
-                    findNavController().navigate(R.id.action_navigation_form_to_navigation_result)
+                    //                    hideLoading()
+                    Toast.makeText(requireContext(), "Food added successfully!", Toast.LENGTH_LONG)
+                        .show()
+//                    findNavController().navigate(R.id.action_navigation_form_to_navigation_result) kalau ada navigation ini bakal error, salah satu aja di 1 kode ini aja yg muncul
                 }
+
                 is Result.Error -> {
 //                    hideLoading()
                     Toast.makeText(
@@ -75,6 +73,7 @@ class FormFragment : Fragment() {
                         Toast.LENGTH_LONG
                     ).show()
                 }
+
                 is Result.Loading -> {
 //                    showLoading()
                 }
@@ -106,7 +105,13 @@ class FormFragment : Fragment() {
 //            )
 
             formViewModel.addNewFood(
-                foodName, carbohydrate, proteins, fat, calories.toInt(), totalNutrition, evaluation.toString()
+                foodName,
+                carbohydrate,
+                proteins,
+                fat,
+                calories.toInt(),
+                totalNutrition,
+                evaluation.toString()
             ) { foodItem ->
                 findNavController().navigate(
                     R.id.action_navigation_form_to_navigation_result
