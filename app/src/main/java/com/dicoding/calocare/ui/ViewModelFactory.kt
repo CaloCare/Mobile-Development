@@ -19,7 +19,7 @@ class ViewModelFactory(private val foodRepository: FoodRepository) : ViewModelPr
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return when {
             modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
-                HomeViewModel() as T
+                HomeViewModel(foodRepository) as T
             }
             modelClass.isAssignableFrom(AddFoodViewModel::class.java) -> {
                 AddFoodViewModel() as T
