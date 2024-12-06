@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
@@ -60,6 +61,20 @@ class ResultFragment : Fragment() {
 
                 // Set the evaluation text to include both the score and the description
                 binding.textViewEvaluation.text = "$evaluationScore ($evaluationDescription)"
+            }
+        }
+
+        binding.buttonDelete.setOnClickListener {
+            val foodName = resultViewModel.foodResult.value?.foodName
+            if (foodName != null) {
+                resultViewModel.deleteFoodByName(foodName)
+                resultViewModel.foodDeleted.observe(viewLifecycleOwner) { isDeleted ->
+                    if (isDeleted) {
+                        findNavController().navigate(R.id.action_navigation_result_to_navigation_home)
+                    } else {
+                        Toast.makeText(context, "Failed to delete food", Toast.LENGTH_SHORT).show()
+                    }
+                }
             }
         }
 
