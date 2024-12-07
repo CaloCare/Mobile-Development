@@ -53,9 +53,33 @@
         android:name="com.dicoding.calocare.ui.result.ResultFragment"
         android:label="fragment_result"
         tools:layout="@layout/fragment_result" >
+        <argument
+            android:name="foodName"
+            app:argType="string" />
+        <argument
+            android:name="foodCalories"
+            app:argType="string" />
+        <argument
+            android:name="foodProteins"
+            app:argType="string" />
+        <argument
+            android:name="foodFats"
+            app:argType="string" />
+        <argument
+            android:name="foodCarbohydrates"
+            app:argType="string" />
+        <argument
+            android:name="foodTotalNutrition"
+            app:argType="string" />
+        <argument
+            android:name="foodEvaluation"
+            app:argType="string" />
         <action
             android:id="@+id/action_navigation_result_to_navigation_chatbot"
             app:destination="@id/navigation_chatbot" />
+        <action
+            android:id="@+id/action_navigation_result_to_navigation_home"
+            app:destination="@id/navigation_home" />
     </fragment>
     <fragment
         android:id="@+id/navigation_mediaChooser"
