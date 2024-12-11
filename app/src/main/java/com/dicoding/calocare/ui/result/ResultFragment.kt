@@ -24,7 +24,6 @@ class ResultFragment : Fragment() {
         ViewModelFactory.getInstance(requireContext())
     }
 
-    // Map for evaluation descriptions
     private val descriptions = mapOf(
         5 to "Bad for you",
         4 to "Not very good for you",
@@ -62,10 +61,10 @@ class ResultFragment : Fragment() {
                 """.trimIndent())
 
                 binding.textViewFoodName.text = it.foodName ?: "N/A"
-                binding.textViewCarbohydrate.text = String.format("%.1f", it.carbohydrate)
-                binding.textViewProtein.text = String.format("%.1f", it.protein)
-                binding.textViewFat.text = String.format("%.1f", it.fat)
-                binding.textViewCalories.text = it.calories.toString()
+                binding.textViewCarbohydrate.text = "${it.carbohydrate} g"
+                binding.textViewProtein.text = "${it.protein} g"
+                binding.textViewFat.text = "${it.fat} g"
+                binding.textViewCalories.text = "${it.calories} kcal"
                 binding.textViewTotalNutrition.text = String.format("%.1f", it.totalNutrition)
 
                 val evaluationScore = it.evaluation?.toIntOrNull() ?: 0
