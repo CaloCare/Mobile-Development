@@ -52,7 +52,7 @@
                 android:id="@+id/foodNameInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/food_name"
+                android:hint="@string/enter_food_name"
                 android:background="@drawable/edit_text_background"
                 android:padding="8dp"
                 android:layout_marginBottom="16dp" />
@@ -70,7 +70,7 @@
                 android:id="@+id/carbohydrateInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/carbohydrate"
+                android:hint="@string/enter_carbohydrates_g"
                 android:background="@drawable/edit_text_background"
                 android:padding="8dp"
                 android:layout_marginBottom="16dp" />
@@ -88,7 +88,7 @@
                 android:id="@+id/proteinInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/protein"
+                android:hint="@string/enter_protein_g"
                 android:background="@drawable/edit_text_background"
                 android:padding="8dp"
                 android:layout_marginBottom="16dp" />
@@ -106,7 +106,7 @@
                 android:id="@+id/fatInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/fat"
+                android:hint="@string/enter_fat_g"
                 android:background="@drawable/edit_text_background"
                 android:padding="8dp"
                 android:layout_marginBottom="16dp" />
@@ -124,7 +124,7 @@
                 android:id="@+id/caloriesInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/calories"
+                android:hint="@string/enter_calories_kcal"
                 android:background="@drawable/edit_text_background"
                 android:padding="8dp"
                 android:layout_marginBottom="24dp" />
@@ -134,7 +134,7 @@
                 android:id="@+id/calculateButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/calculate"
+                android:text="@string/calculate_nutrition"
                 android:layout_gravity="center_horizontal"
                 android:backgroundTint="?attr/colorSecondaryVariant"
                 android:textColor="?android:textColorPrimary"

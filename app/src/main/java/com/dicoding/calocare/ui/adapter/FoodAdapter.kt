@@ -13,15 +13,25 @@ class FoodAdapter(
     private val onItemClick: (FoodItem) -> Unit
 ) : RecyclerView.Adapter<FoodAdapter.FoodViewHolder>() {
 
+    private val descriptions = mapOf(
+        5 to "Bad for you",
+        4 to "Not very good for you",
+        3 to "Fairly good for you",
+        2 to "Good for you",
+        1 to "Very good for you"
+    )
+
     inner class FoodViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val binding = ItemFoodBinding.bind(view)
 
         fun bind(food: FoodItem) {
-            binding.textViewFoodName.text = food.foodName
-            binding.textViewCalories.text = food.calories.toString()
-            binding.textViewResult.text = food.evaluation
-        }
+            val evaluationScore = food.evaluation?.toIntOrNull() ?: 0
+            val evaluationDescription = descriptions[evaluationScore] ?: "No description available"
 
+            binding.textViewFoodName.text = food.foodName
+            binding.textViewCalories.text = "${food.calories.toString()} Calories"
+            binding.textViewResult.text = "$evaluationScore ($evaluationDescription)"
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodViewHolder {

@@ -77,25 +77,21 @@
                         android:textSize="20sp" />
 
                     <!-- Circular Progress Bar -->
-                    <ProgressBar
-                        android:id="@+id/progress_calories"
-                        style="?android:attr/progressBarStyleLarge"
-                        android:layout_width="100dp"
+                    <com.dicoding.calocare.canvas.CalorieDiagramView
+                        android:layout_width="300dp"
                         android:layout_height="100dp"
-                        android:layout_marginTop="16dp"
-                        android:indeterminate="false"
-                        android:max="2000"
-                        android:progress="1200"
-                        android:progressTint="@color/princeton_orange" />
+                        android:layout_marginTop="20dp"
+                        android:layout_gravity="center" />
 
                     <TextView
                         android:id="@+id/tv_calories"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="1200 / 2000"
+                        android:text="1200 / 2000 Calories Consumed"
                         android:textColor="?android:textColorPrimary"
                         android:textSize="16sp" />
+
+
 
                     <TextView
                         android:id="@+id/tv_food_count"

@@ -51,4 +51,10 @@
     <string name="total_nutrition">Total Nutrition:</string>
     <string name="evaluation">Evaluation:</string>
     <string name="delete">Delete</string>
+    <string name="enter_food_name">Enter Food Name</string>
+    <string name="enter_carbohydrates_g">Enter carbohydrates (g)</string>
+    <string name="enter_protein_g">Enter protein (g)</string>
+    <string name="enter_fat_g">Enter fat (g)</string>
+    <string name="enter_calories_kcal">Enter calories (kcal)</string>
+    <string name="calculate_nutrition">CALCULATE NUTRITION</string>
 </resources>
