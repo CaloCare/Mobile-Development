@@ -27,53 +27,32 @@ class FormViewModel(private val foodRepository: FoodRepository): ViewModel() {
     ) {
         viewModelScope.launch {
             _addFoodResult.value = Result.Loading
-            val result = try {
-                foodRepository.addNewFood(
-                    foodName, carbohydrate, protein, fat, calories, totalNutrition, evaluation
-                )
-            } catch (e: Exception) {
-                Result.Error(e.message ?: "Unknown Error")
-            }
+            val result = foodRepository.addNewFood(
+                foodName, carbohydrate, protein, fat, calories, totalNutrition, evaluation
+            )
 
-            if (result is Result.Success) {
-                val foodItem = FoodItem(
-                    id = result.data.data.foodId,
-                    foodName = foodName,
-                    carbohydrate = carbohydrate,
-                    protein = protein,
-                    fat = fat,
-                    calories = calories,
-                    totalNutrition = totalNutrition,
-                    evaluation = evaluation
-                )
-                onSuccess(foodItem)
-            }
-            _addFoodResult.value = mapResultToFoodItem(result, foodName)
-        }
-    }
-
-    private fun mapResultToFoodItem(
-        result: Result<FoodResponse>,
-        foodName: String
-    ): Result<FoodItem> {
-        return when (result) {
-            is Result.Success -> {
-                val foodResponse = result.data.data
-                Result.Success(
-                    FoodItem(
-                        id = foodResponse.foodId,
+            when (result) {
+                is Result.Success -> {
+                    val newFoodItem = FoodItem(
+                        id = "",
                         foodName = foodName,
-                        carbohydrate = foodResponse.carbohydrate,
-                        protein = foodResponse.protein,
-                        fat = foodResponse.fat,
-                        calories = foodResponse.calories,
-                        totalNutrition = foodResponse.totalNutrition,
-                        evaluation = foodResponse.evaluation ?: "Unknown"
+                        carbohydrate = carbohydrate,
+                        protein = protein,
+                        fat = fat,
+                        calories = calories,
+                        totalNutrition = totalNutrition,
+                        evaluation = evaluation
                     )
-                )
+                    onSuccess(newFoodItem)
+                    _addFoodResult.value = Result.Success(newFoodItem)
+                }
+                is Result.Error -> {
+                    _addFoodResult.value = Result.Error(result.message)
+                }
+                is Result.Loading -> {
+                    _addFoodResult.value = Result.Loading
+                }
             }
-            is Result.Error -> Result.Error(result.message ?: "Unknown error")
-            is Result.Loading -> Result.Loading
         }
     }
 }
