@@ -113,10 +113,10 @@ class FormFragment : Fragment() {
                 totalNutrition,
                 evaluation.toString()
             ) { foodItem ->
+                resultViewModel.setFoodResult(foodItem)
                 findNavController().navigate(
                     R.id.action_navigation_form_to_navigation_result
                 )
-                resultViewModel.setFoodResult(foodItem)
             }
         }
     }

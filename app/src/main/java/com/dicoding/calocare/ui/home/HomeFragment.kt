@@ -1,6 +1,5 @@
 package com.dicoding.calocare.ui.home
 
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -9,14 +8,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.dicoding.calocare.R
 import com.dicoding.calocare.databinding.FragmentHomeBinding
 import com.dicoding.calocare.ui.ViewModelFactory
 import com.dicoding.calocare.ui.adapter.FoodAdapter
+import com.dicoding.calocare.ui.result.ResultViewModel
 import java.text.SimpleDateFormat
 import java.util.Calendar
-import java.util.Date
 import java.util.Locale
 
 class HomeFragment : Fragment() {
@@ -24,8 +26,10 @@ class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels {
         ViewModelFactory.getInstance(requireContext())
     }
+    private val resultViewModel: ResultViewModel by activityViewModels {
+        ViewModelFactory.getInstance(requireContext())
+    }
     private lateinit var foodAdapter: FoodAdapter
-
     private lateinit var binding: FragmentHomeBinding
     private val handler = Handler(Looper.getMainLooper())
     private val calendar = Calendar.getInstance()
@@ -39,27 +43,59 @@ class HomeFragment : Fragment() {
         setupDate()
         setupButtonListeners()
         scheduleDateUpdate()
-        setupRecyclerView()
-        observeFoodList()
         return binding.root
     }
 
-    private fun observeFoodList() {
-        viewModel.foodList.observe(viewLifecycleOwner) { foodItems ->
-            Log.d("HomeFragment", "Observed food items: $foodItems")
-            foodAdapter.updateFoodList(foodItems)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setupRecyclerView()
+        observeFoodItems()
+        viewModel.getAllFood()
+
+        viewModel.foods.observe(viewLifecycleOwner) { foods ->
+            foodAdapter.updateFoodList(foods)
         }
-        viewModel.getAllFood() // Fetch the food list
+        viewModel.fetchAllFoods()
     }
 
     private fun setupRecyclerView() {
-        foodAdapter = FoodAdapter(emptyList()) { foodId ->
-            // Handle item click, e.g., navigate to detail view
+        foodAdapter = FoodAdapter(emptyList()) { foodItem ->
+            Log.d("HomeFragment", "Clicked on food: $foodItem")
+            Log.d("HomeFragment", """
+            Clicked Food Item:
+            Name: ${foodItem.foodName}
+            Carbohydrate: ${foodItem.carbohydrate}
+            Protein: ${foodItem.protein}
+            Fat: ${foodItem.fat}
+            Calories: ${foodItem.calories}
+        """.trimIndent())
+
+            resultViewModel.setFoodResult(foodItem)
+            findNavController().navigate(R.id.action_navigation_home_to_navigation_result)
         }
-        binding.dishesRecyclerView.apply {
-            layoutManager = LinearLayoutManager(context)
-            adapter = foodAdapter
+
+        binding.dishesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.dishesRecyclerView.adapter = foodAdapter
+
+        Log.d("HomeFragment", "RecyclerView setup complete")
+    }
+
+    private fun observeFoodItems() {
+        viewModel.foodItem.observe(viewLifecycleOwner) { foodItems ->
+            if (foodItems != null) {
+                Log.d("HomeFragment", "Observed food items: ${foodItems.size}")
+                foodAdapter.updateFoodList(foodItems)
+                foodAdapter.notifyDataSetChanged()
+            } else {
+                Log.d("HomeFragment", "No food items received")
+            }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.getAllFood()
     }
 
     private fun setupDate() {

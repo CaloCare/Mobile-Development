@@ -1,5 +1,11 @@
 package com.dicoding.calocare.data.remote.response
 
+import com.google.gson.annotations.SerializedName
+
 data class DeleteRequest(
-    val name: String
-)
+    @SerializedName("name") val name: String
+) {
+    init {
+        require(name.isNotBlank()) { "Nama makanan tidak boleh kosong" }
+    }
+}
