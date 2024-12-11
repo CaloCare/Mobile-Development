@@ -15,9 +15,20 @@ class ApiConfig {
                 .addInterceptor(loggingInterceptor)
                 .build()
 
-            val retrofit = Retrofit.Builder().baseUrl("https://calocare-266542065750.asia-southeast2.run.app")
+            val retrofit = Retrofit.Builder()
+                .baseUrl("https://calocare-266542065750.asia-southeast2.run.app")
                 .addConverterFactory(GsonConverterFactory.create())
-                .client(client)
+                .client(
+                    OkHttpClient.Builder()
+                        .addInterceptor { chain ->
+                            val originalRequest = chain.request()
+                            val request = originalRequest.newBuilder()
+                                .method(originalRequest.method, originalRequest.body)
+                                .build()
+                            chain.proceed(request)
+                        }
+                        .build()
+                )
                 .build()
 
             return retrofit.create(ApiService::class.java)
