@@ -10,7 +10,7 @@ import com.dicoding.calocare.databinding.ItemFoodBinding
 
 class FoodAdapter(
     private var foodList: List<FoodItem>,
-    private val onItemClick: (FoodItem) -> Unit
+    private val onItemClick: (String) -> Unit
 ) : RecyclerView.Adapter<FoodAdapter.FoodViewHolder>() {
 
     inner class FoodViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -20,6 +20,10 @@ class FoodAdapter(
             binding.textViewFoodName.text = food.foodName
             binding.textViewCalories.text = food.calories.toString()
             binding.textViewResult.text = food.evaluation
+
+            itemView.setOnClickListener {
+                onItemClick(food.id) //id atau name idk
+            }
         }
 
     }
@@ -32,12 +36,7 @@ class FoodAdapter(
     override fun getItemCount(): Int = foodList.size
 
     override fun onBindViewHolder(holder: FoodViewHolder, position: Int) {
-        val food = foodList[position]
-        holder.bind(food)
-
-        holder.itemView.setOnClickListener {
-            onItemClick(food)
-        }
+        holder.bind(foodList[position])
     }
 
     fun updateFoodList(newList: List<FoodItem>) {
