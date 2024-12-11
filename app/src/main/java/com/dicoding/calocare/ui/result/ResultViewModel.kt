@@ -15,30 +15,21 @@ class ResultViewModel(private val foodRepository: FoodRepository) : ViewModel() 
     private val _foodResult = MutableLiveData<FoodItem>()
     val foodResult: LiveData<FoodItem> get() = _foodResult
 
-    private val _foodDeleted = MutableLiveData<Result<Boolean>>()
-    val foodDeleted: LiveData<Result<Boolean>> get() = _foodDeleted
+    private val _foodDeleted = MutableLiveData<Boolean>()
+    val foodDeleted: LiveData<Boolean> get() = _foodDeleted
 
 
     fun setFoodResult(foodItem: FoodItem) {
         _foodResult.value = foodItem
-        Log.d("ResultViewModel", "Food item set: ${foodItem.foodName}")
     }
 
-    fun deleteFoodByName(foodName: String?) {
+    fun deleteFoodByName(foodName: String) {
         viewModelScope.launch {
-            if (foodName.isNullOrBlank()) {
-                _foodDeleted.value = Result.Error("Nama makanan tidak boleh kosong")
-                return@launch
-            }
-
-            _foodDeleted.value = Result.Loading
-
-            try {
-                val result = foodRepository.deleteFoodByName(foodName.trim())
-                _foodDeleted.value = result
-            } catch (e: Exception) {
-                Log.e("DeleteResult", "Deletion failed", e)
-                _foodDeleted.value = Result.Error(e.message ?: "Gagal menghapus makanan")
+            val result = foodRepository.deleteFoodByName(foodName)
+            when (result) {
+                is Result.Success -> Log.d("DeleteResult", "Deletion successful: ${result.data}")
+                is Result.Error -> Log.e("DeleteResult", "Deletion failed: ${result.message}")
+                Result.Loading -> TODO()
             }
         }
     }
